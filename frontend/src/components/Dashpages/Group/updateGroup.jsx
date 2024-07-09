@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateGroup = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
-  const { id } = useParams(); // Get groupId from URL params if available
+  const navigate = useNavigate(); 
+  const { id } = useParams(); 
 
   const [groupName, setGroupName] = useState('');
   const [groupDescription, setGroupDescription] = useState('');
@@ -13,12 +13,11 @@ const UpdateGroup = () => {
   const [selectedMembersList, setSelectedMembersList] = useState([]);
 
   useEffect(() => {
-    // Fetch friends data from API
     const fetchFriends = async () => {
       try {
         const res = await fetch('http://localhost:5000/api/friend/getFriends');
         const data = await res.json();
-        setMembers(data); // Set the fetched friends data to the state
+        setMembers(data); 
       } catch (error) {
         console.error("Error fetching friends:", error);
       }
@@ -28,7 +27,6 @@ const UpdateGroup = () => {
   }, []);
 
   useEffect(() => {
-    // Fetch group data if groupId is available (for update)
     if (id) {
       const fetchGroup = async () => {
         try {
@@ -37,7 +35,7 @@ const UpdateGroup = () => {
           setGroupName(data.name);
           setGroupDescription(data.description);
           setCurrency(data.currency);
-          setSelectedMembersList(data.members.map(member => member._id)); // Assuming members are stored as array of {_id}
+          setSelectedMembersList(data.members.map(member => member._id)); 
         } catch (error) {
           console.error("Error fetching group:", error);
         }
@@ -48,15 +46,13 @@ const UpdateGroup = () => {
   }, [id]);
 
   const handleAddMember = () => {
-    // Add selected member to selectedMembersList
     if (selectedMember) {
       setSelectedMembersList([...selectedMembersList, selectedMember]);
-      setSelectedMember(''); // Clear the selectedMember state after adding
+      setSelectedMember(''); 
     }
   };
 
   const handleDeleteMember = (memberId) => {
-    // Delete selected member from selectedMembersList
     const updatedList = selectedMembersList.filter((member) => member !== memberId);
     setSelectedMembersList(updatedList);
   };

@@ -15,16 +15,18 @@ const Navbar = () => {
     <nav className='bg-gray-900 text-white shadow-lg' >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2'>
         <div className='flex items-center justify-between h-[100px]'>
-          <div className='flex items-center ml-[-25%]'>
+          <div className='flex items-center ml-[-46%]'>
             <Link to='/'>
               <img src={logo} className='h-30 w-[200px] ' alt='EasySplit Logo' />
             </Link>
             <div className='text-white ml-[-15%] font-bold text-3xl'>EasySplit</div>
           </div>
-          <div className='relative mr-[-20%]'>
+
+          <div className='relative mr-[-38%] flex items-center '>
+            <h1 className='mr-[5%] text-2xl'>YourName</h1>
             <button
               onClick={toggleDropdown}
-              className='flex items-center text-sm focus:outline-none'
+              className='flex items-center text-sm  focus:outline-none'
             >
               <img
                 className='h-[50px] w-[50px] rounded-full'

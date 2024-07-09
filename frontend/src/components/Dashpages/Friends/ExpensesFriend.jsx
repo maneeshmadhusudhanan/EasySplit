@@ -2,7 +2,7 @@
 const FriendExpense = () => {
 
   return (
-    <div className='flex justify-between'>
+    <div className='flex ml-[16%] gap-[2%] mt-[3%]'>
       <div>
         <div className="w-[700px]  p-6 bg-gray-900 border-2 border-white rounded-md shadow-md">
         <header className="text-center">

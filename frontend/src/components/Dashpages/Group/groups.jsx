@@ -28,7 +28,6 @@ const GroupList = () => {
       });
       if (res.ok) {
         console.log("Group deleted successfully");
-        // Update the groups list after deletion
         setGroups(groups.filter(group => group._id !== id));
       } else {
         console.error("Failed to delete group");

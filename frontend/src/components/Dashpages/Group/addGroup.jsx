@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 const AddGroup = () => {
-  // const navigate = useNavigate(); // Initialize useNavigate
 
   const [groupName, setGroupName] = useState('');
   const [groupDescription, setGroupDescription] = useState('');
@@ -12,12 +10,11 @@ const AddGroup = () => {
   const [selectedMembersList, setSelectedMembersList] = useState([]);
 
   useEffect(() => {
-    // Fetch friends data from API
     const fetchFriends = async () => {
       try {
         const res = await fetch('http://localhost:5000/api/friend/getFriends');
         const data = await res.json();
-        setMembers(data); // Set the fetched friends data to the state
+        setMembers(data); 
       } catch (error) {
         console.error("Error fetching friends:", error);
       }
@@ -27,21 +24,19 @@ const AddGroup = () => {
   }, []);
 
   const handleAddMember = () => {
-    // Add selected member to selectedMembersList
     if (selectedMember) {
       setSelectedMembersList([...selectedMembersList, selectedMember]);
-      setSelectedMember(''); // Clear the selectedMember state after adding
+      setSelectedMember(''); 
     }
   };
 
   const handleDeleteMember = (memberId) => {
-    // Delete selected member from selectedMembersList
     const updatedList = selectedMembersList.filter((member) => member !== memberId);
     setSelectedMembersList(updatedList);
   };
 
   const handleSaveGroup = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
     
     try {
       const groupData = {
@@ -63,14 +58,10 @@ const AddGroup = () => {
         throw new Error('Failed to save group');
       }
 
-      // Assuming response contains the saved group data
       const data = await res.json();
       console.log('Group saved successfully:', data);
 
-      // Navigate to another route after saving
-      // navigate('/Dashboard/groups'); // Replace '/groups' with your desired route
 
-      // Optionally, you can reset form fields or navigate to another page
       setGroupName('');
       setGroupDescription('');
       setSelectedMembersList([]);
@@ -78,38 +69,35 @@ const AddGroup = () => {
 
     } catch (error) {
       console.error('Error saving group:', error);
-      // Handle error (show message, log, etc.)
     }
   };
 
   const handleCancel = () => {
-    // Implement logic to cancel group creation
     console.log("Cancel group creation");
-    // You can add logic here to navigate or reset form fields
   };
 
   return (
     <div className='flex'>
-      <form className='flex' onSubmit={handleSaveGroup}>
-        <div className="w-[700px] h-[700px] ml-[5%] p-4 border rounded-lg shadow-lg text-black">
+      <form className='flex ml-[15%] mt-[5%]' onSubmit={handleSaveGroup}>
+        <div className="w-[700px] h-[700px] ml-[25%] p-4 border rounded-lg shadow-lg text-black">
           <header className="text-center">
             <h1 className="text-5xl text-black font-bold mb-[10%]">Add New Group</h1>
           </header>
           <div className="mb-4">
-            <label className="block text-xl font-medium mb-4 text-black">Group Name</label>
+            <label className="block text-xl font-medium mb-4 text-white">Group Name</label>
             <input
               type="text"
               placeholder="Enter Group Name"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-white"
               value={groupName}
               onChange={(e) => setGroupName(e.target.value)}
             />
           </div>
           <div className="mb-4">
-            <label className="block text-xl font-medium mb-4 text-black">Group Description (optional)</label>
+            <label className="block text-xl font-medium mb-4 text-white">Group Description (optional)</label>
             <textarea
               placeholder="Enter Group Description"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-white"
               style={{ height: '400px' }}
               value={groupDescription}
               onChange={(e) => setGroupDescription(e.target.value)}
@@ -134,7 +122,7 @@ const AddGroup = () => {
                 ))}
               </select>
               <button
-                type="button" // Change type to button to prevent form submission
+                type="button"
                 className="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded w-[200px]"
                 onClick={handleAddMember}
               >
@@ -158,7 +146,7 @@ const AddGroup = () => {
           <div className="mb-4 mt-5">
             <label className="block text-l font-medium mb-4 text-white">Currency</label>
             <select
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded bg-black text-white"
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
             >

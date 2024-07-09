@@ -1,10 +1,8 @@
-// server.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/userProfile');
+// const userRoutes = require('./routes/userProfile');
 const friendRoutes = require('./routes/friendRoutes');
 const groupRoutes = require('./routes/groupRoutes');
 const groupExpenseRoutes = require('./routes/groupExpenseRoutes');
@@ -18,14 +16,14 @@ app.use('/uploads', express.static('uploads'));
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/userProfile', userRoutes);
+// app.use('/api/userProfile', userRoutes);
 app.use('/api/friend', friendRoutes);
 app.use('/api/group', groupRoutes);
 app.use('/api/addExpense', groupExpenseRoutes);
 
-// MongoDB Connection
 mongoose.connect('mongodb://localhost:27017/splitApp', {
-
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 const database = mongoose.connection;

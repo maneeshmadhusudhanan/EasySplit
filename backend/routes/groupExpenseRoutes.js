@@ -1,4 +1,3 @@
-// routes/groupExpenseRoutes.js
 
 const express = require('express');
 const router = express.Router();
@@ -6,10 +5,9 @@ const multer = require('multer');
 const Expense = require('../models/groupExpense');
 const Group = require('../models/group');
 
-// Configure multer for file upload
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Make sure this directory exists
+    cb(null, 'uploads/'); 
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + '-' + file.originalname);
@@ -17,13 +15,11 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// POST route to add an expense
 router.post('/addExpense', upload.single('file'), async (req, res) => {
   try {
     const { category, description, amount, splitAmounts, group } = req.body;
     const file = req.file;
 
-    // Check if the group exists
     const existingGroup = await Group.findById(group);
     if (!existingGroup) {
       return res.status(404).json({ error: 'Group not found' });

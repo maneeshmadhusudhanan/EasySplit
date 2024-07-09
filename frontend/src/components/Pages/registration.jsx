@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../images/easySplit_logo.png';
 import image from '../images/money.jpeg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -14,19 +16,20 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      alert('Passwords do not match');
+      toast.error('Passwords do not match');
       return;
     }
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+      await fetch('http://localhost:5000/api/auth/register', { username, email, password });
       navigate('/login');
     } catch (error) {
-      alert('Registration failed');
+      toast.error('Registration failed');
     }
   };
 
   return (
     <div className='w-screen h-screen bg-gray-900 flex items-center justify-center pt-[-10%]'>
+      <ToastContainer />
       <div className='w-[500px] h-[400px] mt-[-8%]'>
         <img src={image} alt='reg'/>
       </div>

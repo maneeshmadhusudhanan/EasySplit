@@ -9,7 +9,7 @@ const DashboardHome = () => {
 
   return (
     <div className="p-4">
-      <div className="gap-[5%] flex mb-4">
+      <div className="gap-[5%] ml-[5%] flex mb-4">
         <div className="w-[295px] h-[120px] border-white border bg-gray-900 text-center pt-4 mb-4">
           <h1 className="text-xl font-bold text-white">Total Expenses</h1>
           <h1 className="text-green-500 text-2xl mt-5">$0</h1>
@@ -35,17 +35,17 @@ const DashboardHome = () => {
           <h1 className="text-green-500 text-2xl mt-5">{friendsCount}</h1>
         </div>
       </div>
-      <div className='flex mt-[3%]'>
+      <div className='flex mt-[3%] ml-[6%]'>
         <div className='flex-col'>
-          <div className='w-[700px] h-[200px]'>
+          <div className='w-[1300px] h-[100px]'>
             <Graph/>
           </div>
           <div className='w-[800px] h-[300px] border mt-[27%]'>
                 gojth
           </div>
         </div>
-        <div className='ml-[15%]'>
-        <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
+        <div className='ml-[12%]'>
+        <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-4 ">
         <h2 className="text-xl font-semibold mb-4 text-black">Recent activity</h2>
 
         <div className="bg-white p-4 rounded-lg mb-4 shadow-sm">

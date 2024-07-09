@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../images/easySplit_logo.png';
 import image from '../images/money.jpeg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,16 +14,18 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-      localStorage.setItem('token', response.data.token); 
+      const response = await fetch('http://localhost:5000/api/auth/login', { email, password });
+     // localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
     } catch (error) {
-      alert('Login Failed');
+      console.error('Login error', error.response || error.message); // Log the full error response
+      toast.error(error.response?.data?.message || 'Login Failed'); // Display a more descriptive error message
     }
   };
 
   return (
     <div className='w-screen h-screen bg-gray-900 flex items-center justify-center'>
+      <ToastContainer/>
       <div className='w-[500px] h-[400px] mt-[-8%]'>
         <img src={image} alt='login'/>
       </div>

@@ -15,6 +15,11 @@ const Profile = () => {
       <p className="text-lg mx-12">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cumque recusandae error, sed eligendi fugiat provident, iure possimus voluptatum reiciendis, blanditiis pariatur? Rerum officiis voluptas maiores necessitatibus consequatur eveniet iusto? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate repudiandae eaque unde? Quisquam repudiandae impedit eum ipsa, libero animi vel atque est quae dolores, natus sequi, ab molestiae pariatur eligendi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eveniet? Corrupti sit molestiae iusto sapiente ex! Laudantium at tempora quaerat distinctio deserunt numquam neque, harum officiis nulla dolorum earum eaque.
       </p>
+      <div className='flex '> 
+        <h1>Upi id</h1>
+        <h1>Email</h1>
+        <h1>Phone</h1>
+      </div>
     </div>
   );
 };

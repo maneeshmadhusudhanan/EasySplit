@@ -1,4 +1,3 @@
-// Dashboard.js
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './navbar';
@@ -25,7 +24,7 @@ const Dashboard = () => {
       <Navbar />
       <div className="flex">
         <Sidebar />
-        <div className="ml-[16.5%] mr-[0.8%] mt-3 p-4 w-screen h-[803.5px] bg-white">
+        <div className="ml-[10%]  mt-3 p-4 w-screen h-[1118px] bg-white">
           <FriendsProvider>
             <GroupsProvider> 
               <Routes>

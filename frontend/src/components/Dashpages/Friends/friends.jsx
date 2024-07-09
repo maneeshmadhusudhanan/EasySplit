@@ -42,7 +42,7 @@ const FriendsList = () => {
       <div className='flex justify-between'>
         <h1 className="text-4xl text-black font-bold mt-[5%] mb-[8%]">Friend List</h1>
         <Link to={'/Dashboard/addfriend'}>
-          <h1 className="text-3xl text-black font-bold mt-[5%] mb-[8%]">Add New Friend</h1>
+        <button className="btn btn-outline btn-accent">Accent</button>
         </Link>
       </div>
       {loading ? (

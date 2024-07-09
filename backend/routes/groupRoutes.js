@@ -56,7 +56,6 @@ router.put('/updategroup/:id', async (req, res) => {
   }
 });
 
-// Delete a group by ID
 router.delete('/deletegroup/:id', async (req, res) => {
   try {
     const { id } = req.params;

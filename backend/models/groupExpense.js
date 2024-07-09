@@ -1,4 +1,3 @@
-// models/groupExpense.js
 
 const mongoose = require('mongoose');
 

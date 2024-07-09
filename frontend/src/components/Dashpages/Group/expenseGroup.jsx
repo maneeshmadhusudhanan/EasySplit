@@ -1,4 +1,3 @@
-// GroupExpense.jsx
 
 import React, { useState, useEffect } from 'react';
 
@@ -83,7 +82,6 @@ const GroupExpense = () => {
       formData.append('group', selectedGroup);
       formData.append('file', file);
 
-      // Add splitAmounts to formData
       Object.keys(splitAmounts).forEach((memberId) => {
         formData.append(`splitAmounts[${memberId}]`, splitAmounts[memberId]);
       });
@@ -95,7 +93,6 @@ const GroupExpense = () => {
       if (res.ok) {
         console.log('Expense submitted successfully');
       } else {
-        // Handle error
         console.error('Failed to submit expense');
       }
     } catch (error) {
@@ -105,7 +102,7 @@ const GroupExpense = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='flex justify-between'>
+      <div className='flex ml-[16%] gap-[2%] mt-[3%]'>
         <div>
           <div className="w-[700px] p-6 bg-gray-900 border-2 border-white rounded-md shadow-md">
             <header className="text-center">
@@ -182,7 +179,7 @@ const GroupExpense = () => {
             <h1 className="text-2xl text-white font-bold mb-[3%]">Select the users</h1>
           </header>
 
-          <div className='flex ml-[5%] mt-[5%]'>
+          <div className='flex ml-[20%] mt-[5%]'>
             <div
               className={`w-[200px] h-10 border-2 border-white p-1 text-center ${splitType === 'equal' ? 'bg-blue-500' : 'bg-gray-700'}`}
               onClick={() => handleSplitTypeChange('equal')}
